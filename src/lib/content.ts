@@ -8,16 +8,17 @@ export type Post = Tables<"posts">;
 export type SiteSettings = Tables<"site_settings">;
 export type ContactMessage = Tables<"contact_messages">;
 
-function unwrap<T>({ data, error }: { data: T | null; error: { message: string } | null }): T {
-  if (error) throw new Error(error.message);
-  return data as T;
+function unwrap<T>(res: { data: T | null; error: unknown }): T {
+  if (res.error) throw new Error((res.error as { message?: string }).message ?? "Request failed");
+  return res.data as T;
 }
 
 export const settingsQuery = queryOptions({
   queryKey: ["site_settings"],
   queryFn: async () =>
-    unwrap(await supabase.from("site_settings").select("*").eq("id", 1).maybeSingle()),
+    unwrap<SiteSettings>(await supabase.from("site_settings").select("*").eq("id", 1).maybeSingle()),
 });
+
 
 export const servicesQuery = queryOptions({
   queryKey: ["services"],
