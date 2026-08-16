@@ -44,13 +44,13 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-2 lg:flex">
-          {session ? (
+          {session && isAdmin ? (
             <Button asChild variant="outline" size="sm">
-              <Link to={isAdmin ? "/admin" : "/account"}>{isAdmin ? "Admin" : "My account"}</Link>
+              <Link to="/admin">Admin</Link>
             </Button>
           ) : (
             <Button asChild variant="ghost" size="sm">
-              <Link to="/auth">Sign in</Link>
+              <Link to="/auth">{session ? "Account" : "Sign in"}</Link>
             </Button>
           )}
           <Button asChild size="sm">
@@ -82,15 +82,16 @@ export function SiteHeader() {
               </Link>
             ))}
             <Link
-              to={session ? (isAdmin ? "/admin" : "/account") : "/auth"}
+              to={session && isAdmin ? "/admin" : "/auth"}
               onClick={() => setOpen(false)}
               className="rounded-md px-2 py-2.5 text-sm font-medium text-muted-foreground"
             >
-              {session ? (isAdmin ? "Admin" : "My account") : "Sign in"}
+              {session && isAdmin ? "Admin" : "Sign in"}
             </Link>
           </div>
         </div>
       )}
+
     </header>
   );
 }
