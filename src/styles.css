@@ -154,3 +154,31 @@
     color: var(--color-foreground);
   }
 }
+
+@layer base {
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility section-shell {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 78rem;
+  padding-inline: 1.25rem;
+}
+
+@utility hero-mesh {
+  background-image:
+    radial-gradient(60% 70% at 78% 12%, color-mix(in oklch, var(--primary) 38%, transparent) 0%, transparent 60%),
+    radial-gradient(50% 60% at 8% 88%, color-mix(in oklch, var(--primary) 20%, transparent) 0%, transparent 65%),
+    linear-gradient(140deg, var(--navy) 0%, color-mix(in oklch, var(--navy) 78%, black) 100%);
+}
+
+@utility grid-lines {
+  background-image:
+    linear-gradient(to right, color-mix(in oklch, var(--navy-foreground) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklch, var(--navy-foreground) 7%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
