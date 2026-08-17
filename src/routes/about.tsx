@@ -36,7 +36,7 @@ function AboutPage() {
       <PageHero
         eyebrow="About us"
         title={settings?.tagline ?? "Empowering innovation through technology"}
-        lead={settings?.about ?? undefined}
+        lead={settings?.about ?? "An innovative technology consulting firm based in Nairobi, Kenya."}
       />
 
       <section className="section-shell grid items-center gap-10 py-16 lg:grid-cols-2">
