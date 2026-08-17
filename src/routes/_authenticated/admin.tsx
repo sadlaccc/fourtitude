@@ -131,7 +131,7 @@ function useTableMutations(table: "services" | "team_members" | "posts", queryKe
 
   const update = useMutation({
     mutationFn: async ({ id, values }: { id: string; values: Record<string, unknown> }) => {
-      const { error } = await supabase.from(table).update(values).eq("id", id);
+      const { error } = await supabase.from(table).update(values as never).eq("id", id);
       if (error) throw new Error(error.message);
     },
     onSuccess: () => {
@@ -546,7 +546,7 @@ function SettingsAdmin() {
 
   const save = useMutation({
     mutationFn: async (values: Record<string, unknown>) => {
-      const { error } = await supabase.from("site_settings").update(values).eq("id", 1);
+      const { error } = await supabase.from("site_settings").update(values as never).eq("id", 1);
       if (error) throw new Error(error.message);
     },
     onSuccess: () => {
