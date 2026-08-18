@@ -41,7 +41,7 @@ function AboutPage() {
 
       <section className="section-shell grid items-center gap-10 py-16 lg:grid-cols-2">
         <img
-          src={aboutImage}
+          src={aboutImage.url}
           alt="Consultant reviewing security dashboards"
           loading="lazy"
           width={1408}
