@@ -4,7 +4,7 @@ import { Compass, Eye, Target } from "lucide-react";
 import { PageHero, SiteLayout } from "@/components/site/SiteLayout";
 import { Card, CardContent } from "@/components/ui/card";
 import { settingsQuery, teamQuery } from "@/lib/content";
-import aboutImage from "@/assets/about-work.jpg";
+import aboutImage from "@/assets/about-work.jpg.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
