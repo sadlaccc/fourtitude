@@ -3,10 +3,10 @@ import { useQuery } from "@tanstack/react-query";
 import { ArrowRight, CheckCircle2, Mail, Phone } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { ServiceIcon } from "@/components/site/ServiceIcon";
+import { HeroSlider } from "@/components/site/HeroSlider";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { postsQuery, servicesQuery, settingsQuery, teamQuery, formatDate } from "@/lib/content";
-import heroImage from "@/assets/hero-team.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -74,15 +74,7 @@ function Home() {
                 ))}
               </dl>
             </div>
-            <div className="relative">
-              <img
-                src={heroImage}
-                alt="Fourtitude consultants collaborating in the office"
-                width={1600}
-                height={1104}
-                className="w-full rounded-xl border border-navy-foreground/15 object-cover shadow-2xl"
-              />
-            </div>
+            <HeroSlider />
           </div>
         </div>
       </section>
