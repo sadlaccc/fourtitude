@@ -4,7 +4,7 @@ import { Compass, Eye, Target } from "lucide-react";
 import { PageHero, SiteLayout } from "@/components/site/SiteLayout";
 import { Card, CardContent } from "@/components/ui/card";
 import { settingsQuery, teamQuery } from "@/lib/content";
-import aboutImage from "@/assets/about-work.jpg";
+import aboutImage from "@/assets/about-work.jpg.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -41,7 +41,7 @@ function AboutPage() {
 
       <section className="section-shell grid items-center gap-10 py-16 lg:grid-cols-2">
         <img
-          src={aboutImage}
+          src={aboutImage.url}
           alt="Consultant reviewing security dashboards"
           loading="lazy"
           width={1408}
